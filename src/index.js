@@ -91,3 +91,25 @@ const flag = (tile) => {
         }
     }
 }
+
+const clickTile = (tile) => {
+    if (gameOver) return;
+    if (tile.classList.contains('tile--checked') || tile.classList.contains('tile--flagged')) return;
+    let coordinate = tile.getAttribute('data-tile');
+    if (bombs.includes(coordinate)) {
+        endGame(tile);
+    } else {
+        let num = tile.getAttribute('data-num');
+        if (num != null) {
+            tile.classList.add('tile--checked');
+            tile.innerHTML = num;
+            tile.style.color = numberColors[num-1];
+            setTimeout(() => {
+                checkVictory();
+            }, 100);
+            return;
+        }
+        checkTile(tile, coordinate);
+    }
+    tile.classList.add('tile--checked');
+}
