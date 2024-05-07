@@ -179,3 +179,9 @@ const checkVictory = () => {
         gameOver = true;
     }
 }
+setup();
+
+restartBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    clear();
+});
