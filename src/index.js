@@ -78,3 +78,16 @@ const setup = () => {
         tile.setAttribute('data-num', dataNum + 1);
     });
 }
+
+const flag = (tile) => {
+    if (gameOver) return;
+    if (!tile.classList.contains('tile--checked')) {
+        if (!tile.classList.contains('tile--flagged')) {
+            tile.innerHTML = '🚩';
+            tile.classList.add('tile--flagged');
+        } else {
+            tile.innerHTML = '';
+            tile.classList.remove('tile--flagged');
+        }
+    }
+}
