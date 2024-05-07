@@ -18,3 +18,15 @@ let endscreenContent = {
 };
 
 let gameOver = false;
+
+const clear = () => {
+    gameOver = false;
+    bombs = [];
+    numbers = [];
+    endscreen.innerHTML = '';
+    endscreen.classList.remove('show');
+    tiles.forEach(tile => {
+        tile.remove();
+    });
+    setup();
+}
