@@ -153,3 +153,17 @@ const checkTile = (tile, coordinate) => {
         }
     }, 10);
 }
+
+const endGame = (tile) => {
+    endscreen.innerHTML = endscreenContent.loose;
+    endscreen.classList.add('show');
+    gameOver = true;
+    tiles.forEach(tile => {
+        let coordinate = tile.getAttribute('data-tile');
+        if (bombs.includes(coordinate)) {
+            tile.classList.remove('tile--flagged');
+            tile.classList.add('tile--checked', 'tile--bomb');
+            tile.innerHTML = '💣';
+        }
+    });
+}
