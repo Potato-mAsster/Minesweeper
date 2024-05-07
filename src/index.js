@@ -167,3 +167,15 @@ const endGame = (tile) => {
         }
     });
 }
+const checkVictory = () => {
+    let win = true;
+    tiles.forEach(tile => {
+        let coordinate = tile.getAttribute('data-tile');
+        if (!tile.classList.contains('tile--checked') && !bombs.includes(coordinate)) win = false;
+    });
+    if (win) {
+        endscreen.innerHTML = endscreenContent.win;
+        endscreen.classList.add('show');
+        gameOver = true;
+    }
+}
