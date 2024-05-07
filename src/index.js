@@ -153,4 +153,3 @@ const checkTile = (tile, coordinate) => {
         }
     }, 10);
 }
-
